@@ -1,0 +1,47 @@
+.searchCont {
+  background: var(--searchBG);
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin: 35px 0 16px;
+  width: 100%;
+}
+.searchIco {
+  scale: 0.7;
+}
+.searchButton {
+  background: var(--searchButton);
+  border-radius: 10px;
+  border-width: 0px;
+  width: 84px;
+  height: 46px;
+  font-family: "Space Mono";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 7px;
+  cursor: pointer;
+}
+.searching {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.searching input {
+  outline: none;
+  border: none;
+  width: 37vw;
+}
+.notFound {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #f74646;
+}

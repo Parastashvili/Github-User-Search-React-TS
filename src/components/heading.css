@@ -1,0 +1,28 @@
+.headerCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  width: 100%;
+}
+.devFinder {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 39px;
+  color: #222731;
+  cursor: pointer;
+}
+.themeCont {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+.themeTxt {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+  text-align: right;
+  letter-spacing: 2.5px;
+  color: var(--themeColor);
+}

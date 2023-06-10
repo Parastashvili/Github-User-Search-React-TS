@@ -1,0 +1,82 @@
+.avatar {
+  width: 70px;
+  height: 70px;
+}
+.userContainerTop {
+  display: flex;
+  gap: 19.5px;
+  margin-bottom: 34px;
+}
+.userContainerOut {
+  background: var(--userBG);
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  padding: 32px 24px 39px 24px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+.userName {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--userName);
+}
+.userUser {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  margin-bottom: 6px;
+  color: var(--userUser);
+}
+.userJoined {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--userJoined);
+}
+.userBio {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: var(--userBio);
+  margin-bottom: 23px;
+}
+.userFollowers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--followersBG);
+  border-radius: 10px;
+  padding: 19px 15px;
+  margin-bottom: 24px;
+}
+.repoFollowers {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  color: var(--repoFollowers);
+}
+.numberInfo {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--numberInfo);
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.iconBox{
+    width: 20px;
+}
