@@ -1,8 +1,8 @@
-import "./App.css";
+import "./css/App.css";
 import Moon from "./assets/moon";
 import Sun from "./assets/sun";
-import "./components/heading.css";
-import "./components/search.css";
+import "./css/heading.css";
+import "./css/search.css";
 import { useState, useEffect } from "react";
 import SearchIcon from "./assets/searchIcon";
 import axios from "axios";
@@ -10,8 +10,8 @@ import Company from "./assets/company";
 import Twitter from "./assets/twitter";
 import Location from "./assets/location";
 import Website from "./assets/website";
-import "./components/addition.css";
-import "./components/userInfo.css";
+import "./css/addition.css";
+import "./css/userInfo.css";
 function App() {
   const light = () => {
     document.documentElement.style.setProperty("--bgColor", "#f6f8ff");
@@ -191,8 +191,8 @@ function App() {
           </div>
           <div className="searchIco"></div>
           <input className="searchUser" placeholder="Search GitHub username…" />
-          {found === true ? <p className="notFound">NOT FOUND</p> : null}
         </form>
+        {found === true ? <p className="notFound">No Result</p> : null}
         <button onClick={submit} className="searchButton">
           Search
         </button>

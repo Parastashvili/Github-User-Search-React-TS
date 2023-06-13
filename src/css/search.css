@@ -51,4 +51,22 @@
   font-size: 15px;
   line-height: 22px;
   color: #f74646;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  .searchIco {
+    scale: 1;
+  }
+  .searchCont {
+    height: 69px;
+  }
+  .searching input {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .searchButton {
+    width: 106px;
+    height: 50px;
+    line-height: 24px;
+  }
 }

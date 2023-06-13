@@ -86,3 +86,54 @@
 .iconBox {
   width: 20px;
 }
+@media (min-width: 768px) {
+  .avatar {
+    width: 117px;
+    height: 117px;
+  }
+  .userContainerTop {
+    gap: 41px;
+    margin-bottom: 24px;
+  }
+  .userContainerOut {
+    padding: 40px;
+    width: calc(100% - 80px);
+  }
+  .userName {
+    font-size: 26px;
+    line-height: 39px;
+  }
+  .userUser {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .userJoined {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .userBio {
+    font-size: 15px;
+  }
+  .userFollowers {
+    justify-content: space-evenly;
+  }
+  .repoFollowers {
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .numberInfo {
+    font-size: 22px;
+    line-height: 33px;
+  }
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 19px;
+  }
+}
+@media (min-width: 1440px) {
+  .avatar {
+    width: 167px;
+    height: 167px;
+  }
+}
