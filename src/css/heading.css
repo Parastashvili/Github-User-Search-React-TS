@@ -4,6 +4,7 @@
   justify-content: space-between;
   user-select: none;
   width: 100%;
+  max-width: 730px;
 }
 .devFinder {
   font-weight: 700;

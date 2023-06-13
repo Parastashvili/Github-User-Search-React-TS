@@ -1,17 +1,17 @@
-import "./css/App.css";
-import Moon from "./assets/moon";
-import Sun from "./assets/sun";
-import "./css/heading.css";
-import "./css/search.css";
 import { useState, useEffect } from "react";
-import SearchIcon from "./assets/searchIcon";
 import axios from "axios";
+import SearchIcon from "./assets/searchIcon";
 import Company from "./assets/company";
 import Twitter from "./assets/twitter";
 import Location from "./assets/location";
 import Website from "./assets/website";
+import Moon from "./assets/moon";
+import Sun from "./assets/sun";
+import "./css/heading.css";
+import "./css/search.css";
 import "./css/addition.css";
 import "./css/userInfo.css";
+import "./css/App.css";
 function App() {
   const light = () => {
     document.documentElement.style.setProperty("--bgColor", "#f6f8ff");
@@ -172,7 +172,6 @@ function App() {
   const [userTwitter, setUserTwitter] = useState("");
   const [userCompany, setUserCompany] = useState("");
   const [userLink, setUserLink] = useState("");
-
   return (
     <div className="contentContainer">
       <div className="headerCont">

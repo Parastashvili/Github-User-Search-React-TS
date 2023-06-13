@@ -8,6 +8,7 @@
   height: 60px;
   margin: 35px 0 16px;
   width: 100%;
+  max-width: 730px;
 }
 .searchIco {
   scale: 0.7;
@@ -33,9 +34,11 @@
   margin-left: 16px;
 }
 .searching input {
+  cursor: pointer;
   outline: none;
   border: none;
   width: 37vw;
+  max-width: 400px;
   background-color: transparent;
   font-family: "Space Mono";
   font-style: normal;
