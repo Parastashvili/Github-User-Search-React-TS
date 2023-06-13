@@ -36,6 +36,13 @@
   outline: none;
   border: none;
   width: 37vw;
+  background-color: transparent;
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: var(--inputColor);
 }
 .notFound {
   font-family: "Space Mono";

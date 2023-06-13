@@ -9,7 +9,7 @@
   font-weight: 700;
   font-size: 26px;
   line-height: 39px;
-  color: #222731;
+  color: var(--devFinder);
   cursor: pointer;
 }
 .themeCont {

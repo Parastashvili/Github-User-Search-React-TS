@@ -31,6 +31,10 @@
   line-height: 19px;
   margin-bottom: 6px;
   color: var(--userUser);
+  text-decoration: none;
+}
+.userOpac {
+  opacity: 0.5;
 }
 .userJoined {
   font-weight: 400;

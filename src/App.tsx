@@ -13,14 +13,55 @@ import Website from "./assets/website";
 import "./components/addition.css";
 import "./components/userInfo.css";
 function App() {
+  const light = () => {
+    document.documentElement.style.setProperty("--bgColor", "#f6f8ff");
+    document.documentElement.style.setProperty("--devFinder", "#222731");
+    document.documentElement.style.setProperty("--themeColor", "#4b6a9b");
+    document.documentElement.style.setProperty("--searchBG", "#fefefe");
+    document.documentElement.style.setProperty("--searchButton", "#0079ff");
+    document.documentElement.style.setProperty("--userBG", "#fefefe");
+    document.documentElement.style.setProperty("--userName", "#2b3442");
+    document.documentElement.style.setProperty("--userUser", "#0079ff");
+    document.documentElement.style.setProperty("--userJoined", "#697c9a");
+    document.documentElement.style.setProperty("--userBio", "#4b6a9b");
+    document.documentElement.style.setProperty("--followersBG", "#f6f8ff");
+    document.documentElement.style.setProperty("--repoFollowers", "#4b6a9b");
+    document.documentElement.style.setProperty("--numberInfo", "#2b3442");
+    document.documentElement.style.setProperty("--contactText", "#4b6a9b");
+    document.documentElement.style.setProperty("--inputColor", "#4b6a9b");
+  };
+  const dark = () => {
+    document.documentElement.style.setProperty("--bgColor", "#141D2F");
+    document.documentElement.style.setProperty("--devFinder", "#FFFFFF");
+    document.documentElement.style.setProperty("--themeColor", "#FFFFFF");
+    document.documentElement.style.setProperty("--searchBG", "#1E2A47");
+    document.documentElement.style.setProperty("--searchButton", "#0079ff");
+    document.documentElement.style.setProperty("--userBG", "#1E2A47");
+    document.documentElement.style.setProperty("--userName", "#FFFFFF");
+    document.documentElement.style.setProperty("--userUser", "#0079FF");
+    document.documentElement.style.setProperty("--userJoined", "#FFFFFF");
+    document.documentElement.style.setProperty("--userBio", "#FFFFFF");
+    document.documentElement.style.setProperty("--followersBG", "#141D2F");
+    document.documentElement.style.setProperty("--repoFollowers", "#FFFFFF");
+    document.documentElement.style.setProperty("--numberInfo", "#FFFFFF");
+    document.documentElement.style.setProperty("--contactText", "#FFFFFF");
+    document.documentElement.style.setProperty("--inputColor", "#FFFFFF");
+  };
   const currentMode = localStorage.getItem("dark-mode");
+  if (currentMode === "off") {
+    light();
+  } else {
+    dark();
+  }
   const [theme, setTheme] = useState(currentMode === "off" ? true : false);
   const themeChange = () => {
     setTheme(!theme);
     if (theme === true) {
       localStorage.setItem("dark-mode", "on");
+      dark();
     } else {
       localStorage.setItem("dark-mode", "off");
+      light();
     }
   };
   const reload = () => {
@@ -54,37 +95,52 @@ function App() {
       } else {
         num = joinData[1];
       }
-      console.log(userData);
       const formatedMonth = month[num - 1];
       const formatedDate = `Joined ${day} ${formatedMonth} ${joinData[0]}`;
       setFound(false);
       setUserAvatar(userData.avatar_url);
       setUserName(userData.name);
+      setUserLink(userData.html_url);
       setUserLogin("@" + userData.login);
       setUserCreated_at(formatedDate);
-      setUserBio(userData.bio);
+      if (userData.bio === null) {
+        setUserBio("Bio is not Available");
+      } else {
+        setUserBio(userData.bio);
+      }
       setUserFollowers(userData.followers);
       setUserRepos(userData.public_repos);
       setUserFollowing(userData.following);
-      if (userData.location === "") {
+      if (userData.location === null || userData.location === "") {
         setUserLocation("Not Available");
+        document.getElementById(userLocation)?.classList.add("userOpac");
       } else {
         setUserLocation(userData.location);
+        document.getElementById(userLocation)?.classList.remove("userOpac");
       }
-      if (userData.blog === "") {
+      if (userData.blog === null || userData.blog === "") {
         setUserWebsite("Not Available");
+        document.getElementById(userWebsite)?.classList.add("userOpac");
       } else {
         setUserWebsite(userData.blog);
+        document.getElementById(userWebsite)?.classList.remove("userOpac");
       }
-      if (userData.twitter_username === null) {
+      if (
+        userData.twitter_username === null ||
+        userData.twitter_username === ""
+      ) {
         setUserTwitter("Not Available");
+        document.getElementById(userTwitter)?.classList.add("userOpac");
       } else {
         setUserTwitter(userData.twitter_username);
+        document.getElementById(userTwitter)?.classList.remove("userOpac");
       }
-      if (userData.company === "") {
+      if (userData.company === null || userData.company === "") {
+        document.getElementById(userCompany)?.classList.add("userOpac");
         setUserCompany("Not Available");
       } else {
         setUserCompany(userData.company);
+        document.getElementById(userCompany)?.classList.remove("userOpac");
       }
     } catch (error) {
       setFound(true);
@@ -115,6 +171,7 @@ function App() {
   const [userWebsite, setUserWebsite] = useState("");
   const [userTwitter, setUserTwitter] = useState("");
   const [userCompany, setUserCompany] = useState("");
+  const [userLink, setUserLink] = useState("");
 
   return (
     <div className="contentContainer">
@@ -145,7 +202,14 @@ function App() {
           <img className="avatar" src={userAvatar} alt="user Avatar" />
           <div className="userInfo">
             <h4 className="userName">{userName}</h4>
-            <h5 className="userUser">{userLogin}</h5>
+            <a
+              className="userUser"
+              href={userLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {userLogin}
+            </a>
             <h6 className="userJoined">{userCreated_at}</h6>
           </div>
         </div>
@@ -170,7 +234,9 @@ function App() {
               <Location />
             </div>
             <div className="additionCont">
-              <p className="dscTxt">{userLocation}</p>
+              <p className="dscTxt userOpac" id={userLocation}>
+                {userLocation}
+              </p>
             </div>
           </div>
           <div className="contact">
@@ -179,9 +245,11 @@ function App() {
             </div>
             <div className="additionCont">
               <a
-                href={"https://" + userWebsite}
+                id={userWebsite}
+                href={userWebsite}
+                rel="noreferrer"
                 target="_blank"
-                className="dscTxt"
+                className="dscTxt userOpac"
               >
                 {userWebsite}
               </a>
@@ -192,7 +260,15 @@ function App() {
               <Twitter />
             </div>
             <div className="additionCont">
-              <p className="dscTxt">{userTwitter}</p>
+              <a
+                id={userTwitter}
+                className="dscTxt userOpac"
+                href={"https://twitter.com/" + userTwitter}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {userTwitter}
+              </a>
             </div>
           </div>
           <div className="contact">
@@ -200,7 +276,9 @@ function App() {
               <Company />
             </div>
             <div className="additionCont">
-              <p className="dscTxt">{userCompany}</p>
+              <a className="dscTxt userOpac" id={userCompany}>
+                {userCompany}
+              </a>
             </div>
           </div>
         </div>
